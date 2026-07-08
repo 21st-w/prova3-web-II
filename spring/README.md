@@ -54,6 +54,6 @@ Este guia tem tudo que você precisa fazer para rodar o projeto do **Desafio 07*
    http://localhost:3000
    ```
 3. Na tela de login, preencha:
-   - **Usuário:** `dog`
-   - **Senha:** `dog`
+   - **Usuário:** `admin`
+   - **Senha:** `admin`
 4. Aproveite! Agora você pode cadastrar, pesquisar, editar e excluir clientes.

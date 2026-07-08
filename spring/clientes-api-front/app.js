@@ -62,7 +62,7 @@ app.post('/autenticar', (req, res) => {
         });
     }
 
-    if (usuario === 'dog' && senha === 'dog') {
+    if (usuario === 'admin' && senha === 'admin') {
         req.session.autenticado = true;
 
         return res.redirect('/principal');

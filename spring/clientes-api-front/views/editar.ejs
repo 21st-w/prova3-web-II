@@ -72,6 +72,8 @@
             name="cpf"
             id="cpf"
             value="<%= cliente.cpf %>"
+            pattern="[0-9.-]+"
+            title="Apenas números, pontos ou traços"
             required
         >
 
@@ -106,6 +108,8 @@
             name="telefone"
             id="telefone"
             value="<%= cliente.telefone %>"
+            pattern="[0-9\s\+\-\(\)]+"
+            title="Apenas números e símbolos de telefone (+, -, espaços)"
             required
         >
 
