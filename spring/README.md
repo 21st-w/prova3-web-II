@@ -13,7 +13,7 @@ Este guia tem tudo que você precisa fazer para rodar o projeto do **Desafio 07*
    http://localhost/phpmyadmin
    ```
 4. Na aba **SQL** do phpMyAdmin, abra o arquivo `database.sql` (que está na pasta principal `spring`), copie todo o conteúdo e cole na caixa de texto.
-5. Clique em **Executar (Go)**. Isso vai criar o banco `bd_clientes` e a tabela `cliente` automaticamente.
+5. Clique em **Executar (Go)**. Isso vai criar o banco `prova3` e a tabela `cliente` automaticamente.
 
 ---
 
@@ -22,7 +22,7 @@ Este guia tem tudo que você precisa fazer para rodar o projeto do **Desafio 07*
 1. Abra a sua IDE (Eclipse, VSCode, IntelliJ) no computador da faculdade.
 2. Importe o projeto da pasta `clientes-api-rest`.
    - Lembre-se de certificar-se de que a IDE está usando o **Java 21**.
-3. Verifique no arquivo `src/main/resources/application.properties` se o usuário e a senha do MySQL estão corretos. (Por padrão no XAMPP, o usuário costuma ser `root` e a senha vazia. Se for o caso, apague a senha no arquivo do Spring).
+3. O BackEnd já está configurado para se conectar ao MySQL usando o usuário padrão do XAMPP (`root` com senha vazia).
 4. Rode a classe principal do projeto (geralmente onde fica o `@SpringBootApplication`). 
 5. O BackEnd começará a rodar na porta **8080**.
 
