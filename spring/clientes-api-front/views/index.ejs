@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lista de Clientes</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+<body>
+
+    <div class="topo">
+
+        <h1>Lista de Clientes</h1>
+
+        <a href="/sair">
+            <button class="sair">
+                Sair
+            </button>
+        </a>
+
+    </div>
+
+
+    <div class="acoes-topo">
+
+        <a href="/novo">
+
+            <button>
+                Novo Cliente
+            </button>
+
+        </a>
+
+
+        <form
+            action="/principal"
+            method="GET"
+            class="pesquisa-form"
+        >
+
+            <input
+                type="text"
+                name="nome"
+                value="<%= nome %>"
+                placeholder="Pesquisar por nome"
+            >
+
+            <button
+                type="submit"
+                class="pesquisar"
+            >
+                Pesquisar
+            </button>
+
+            <a href="/principal">
+
+                <button
+                    type="button"
+                    class="limpar"
+                >
+                    Limpar
+                </button>
+
+            </a>
+
+        </form>
+
+    </div>
+
+
+    <p>
+        Total de clientes:
+        <strong><%= totalRegistros %></strong>
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Nome</th>
+
+                <th>Data/Nasc</th>
+
+                <th>CPF</th>
+
+                <th>Endereço</th>
+
+                <th>Telefone</th>
+
+                <th>Email</th>
+
+                <th class="centralizado">
+                    Ações
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <% if (clientes.length === 0) { %>
+
+                <tr>
+
+                    <td
+                        colspan="8"
+                        class="centralizado"
+                    >
+                        Nenhum cliente encontrado.
+                    </td>
+
+                </tr>
+
+            <% } %>
+
+
+            <% clientes.forEach(cliente => { %>
+
+                <tr>
+
+                    <td>
+                        <%= cliente.id %>
+                    </td>
+
+                    <td>
+                        <%= cliente.nome %>
+                    </td>
+
+                    <td>
+                        <%= cliente.nascimento %>
+                    </td>
+
+                    <td>
+                        <%= cliente.cpf %>
+                    </td>
+
+                    <td>
+                        <%= cliente.endereco %>
+                    </td>
+
+                    <td>
+                        <%= cliente.telefone %>
+                    </td>
+
+                    <td>
+                        <%= cliente.email %>
+                    </td>
+
+
+                    <td class="centralizado">
+
+                        <form
+                            action="/editar/<%= cliente.id %>"
+                            method="GET"
+                            style="display: inline;"
+                        >
+
+                            <button
+                                type="submit"
+                                class="editar"
+                            >
+                                Editar
+                            </button>
+
+                        </form>
+
+
+                        <button
+                            type="button"
+                            class="excluir"
+                            onclick="confirmarExclusao('<%= cliente.id %>')"
+                        >
+                            Excluir
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            <% }) %>
+
+        </tbody>
+
+    </table>
+
+
+    <div class="paginacao">
+
+        <% if (paginaAtual > 1) { %>
+
+            <a
+                href="/principal?pagina=<%= paginaAtual - 1 %>&nome=<%= encodeURIComponent(nome) %>"
+            >
+                Anterior
+            </a>
+
+        <% } %>
+
+
+        <% for (let i = 1; i <= totalPaginas; i++) { %>
+
+            <a
+                href="/principal?pagina=<%= i %>&nome=<%= encodeURIComponent(nome) %>"
+                class="<%= i === paginaAtual ? 'ativa' : '' %>"
+            >
+                <%= i %>
+            </a>
+
+        <% } %>
+
+
+        <% if (paginaAtual < totalPaginas) { %>
+
+            <a
+                href="/principal?pagina=<%= paginaAtual + 1 %>&nome=<%= encodeURIComponent(nome) %>"
+            >
+                Próxima
+            </a>
+
+        <% } %>
+
+    </div>
+
+
+    <!-- Modal de Confirmação -->
+
+    <div
+        id="modalConfirmacao"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <p>
+                Deseja excluir este cliente?
+            </p>
+
+            <button
+                id="confirmar"
+                class="excluir"
+            >
+                Sim
+            </button>
+
+            <button id="cancelar">
+                Não
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        Felipe Murilo Ribeiro Ribeiro, prova 3 de web II
+
+    </footer>
+
+
+    <script>
+
+        function confirmarExclusao(clienteId) {
+
+            var modal =
+                document.getElementById(
+                    "modalConfirmacao"
+                );
+
+            modal.style.display = "block";
+
+
+            var confirmar =
+                document.getElementById(
+                    "confirmar"
+                );
+
+
+            confirmar.onclick = function() {
+
+                var form =
+                    document.createElement('form');
+
+                form.method = 'POST';
+
+                form.action =
+                    '/excluir/' + clienteId;
+
+                document.body.appendChild(form);
+
+                form.submit();
+
+            };
+
+
+            var cancelar =
+                document.getElementById(
+                    "cancelar"
+                );
+
+
+            cancelar.onclick = function() {
+
+                modal.style.display = "none";
+
+            };
+
+        }
+
+
+        window.onclick = function(event) {
+
+            var modal =
+                document.getElementById(
+                    "modalConfirmacao"
+                );
+
+            if (event.target == modal) {
+
+                modal.style.display = "none";
+
+            }
+
+        };
+
+    </script>
+
+</body>
+
+</html>
