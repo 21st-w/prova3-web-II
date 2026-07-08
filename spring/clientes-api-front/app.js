@@ -77,7 +77,7 @@ app.post('/autenticar', (req, res) => {
 // Rota para sair
 app.get('/sair', (req, res) => {
     req.session.destroy(() => {
-        res.clearCookie('connect.sid');
+        res.clearCookie('connect.sid'); //usei a ia para saber como por exemplo eu aperto em sair e caso eu aperte na seta de voltar nao seje possivel 
         res.redirect('/');
     });
 });

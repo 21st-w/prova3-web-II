@@ -61,7 +61,7 @@ public class ClienteController {
                 .collect(Collectors.toList());
     }
 
-    // Pesquisar por nome e paginar
+    // Pesquisar por nome e fazer a paginacao paginar
 
     @GetMapping("/pagina")
     public Page<ClienteFormRequest> getPagina(
