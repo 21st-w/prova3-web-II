@@ -4,17 +4,11 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Editar Cliente</title>
 
-    <link
-        rel="stylesheet"
-        href="/css/style.css"
-    >
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -22,10 +16,7 @@
     <h1>Editar Cliente</h1>
 
 
-    <form
-        action="/editar/<%= cliente.id %>"
-        method="POST"
-    >
+    <form action="/editar/<%= cliente.id %>" method="POST">
 
         <label for="nome">
             Nome:
@@ -33,13 +24,7 @@
 
         <br>
 
-        <input
-            type="text"
-            name="nome"
-            id="nome"
-            value="<%= cliente.nome %>"
-            required
-        >
+        <input type="text" name="nome" id="nome" value="<%= cliente.nome %>" required>
 
         <br>
 
@@ -50,13 +35,7 @@
 
         <br>
 
-        <input
-            type="date"
-            name="nascimento"
-            id="nascimento"
-            value="<%= cliente.nascimento %>"
-            required
-        >
+        <input type="date" name="nascimento" id="nascimento" value="<%= cliente.nascimento %>" required>
 
         <br>
 
@@ -67,15 +46,8 @@
 
         <br>
 
-        <input
-            type="text"
-            name="cpf"
-            id="cpf"
-            value="<%= cliente.cpf %>"
-            pattern="[0-9.-]+"
-            title="Apenas números, pontos ou traços"
-            required
-        >
+        <input type="text" name="cpf" id="cpf" value="<%= cliente.cpf %>" pattern="[0-9.-]+"
+            title="Apenas números, pontos ou traços" required>
 
         <br>
 
@@ -86,13 +58,7 @@
 
         <br>
 
-        <input
-            type="text"
-            name="endereco"
-            id="endereco"
-            value="<%= cliente.endereco %>"
-            required
-        >
+        <input type="text" name="endereco" id="endereco" value="<%= cliente.endereco %>" required>
 
         <br>
 
@@ -103,15 +69,8 @@
 
         <br>
 
-        <input
-            type="text"
-            name="telefone"
-            id="telefone"
-            value="<%= cliente.telefone %>"
-            pattern="[0-9\s\+\-\(\)]+"
-            title="Apenas números e símbolos de telefone (+, -, espaços)"
-            required
-        >
+        <input type="text" name="telefone" id="telefone" value="<%= cliente.telefone %>" pattern="[0-9\s\+\-\(\)]+"
+            title="Apenas números e símbolos de telefone (+, -, espaços)" required>
 
         <br>
 
@@ -122,21 +81,12 @@
 
         <br>
 
-        <input
-            type="email"
-            name="email"
-            id="email"
-            value="<%= cliente.email %>"
-            required
-        >
+        <input type="email" name="email" id="email" value="<%= cliente.email %>" required>
 
         <br>
 
 
-        <button
-            type="submit"
-            class="salvar"
-        >
+        <button type="submit" class="salvar">
             Salvar
         </button>
 

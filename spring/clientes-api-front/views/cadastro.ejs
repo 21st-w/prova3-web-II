@@ -4,17 +4,11 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Novo Cliente</title>
 
-    <link
-        rel="stylesheet"
-        href="/css/style.css"
-    >
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -22,10 +16,7 @@
     <h1>Cadastrar Novo Cliente</h1>
 
 
-    <form
-        action="/novo"
-        method="POST"
-    >
+    <form action="/novo" method="POST">
 
         <label for="nome">
             Nome:
@@ -33,12 +24,7 @@
 
         <br>
 
-        <input
-            type="text"
-            name="nome"
-            id="nome"
-            required
-        >
+        <input type="text" name="nome" id="nome" required>
 
         <br>
 
@@ -49,12 +35,7 @@
 
         <br>
 
-        <input
-            type="date"
-            name="nascimento"
-            id="nascimento"
-            required
-        >
+        <input type="date" name="nascimento" id="nascimento" required>
 
         <br>
 
@@ -65,14 +46,7 @@
 
         <br>
 
-        <input
-            type="text"
-            name="cpf"
-            id="cpf"
-            pattern="[0-9.-]+"
-            title="Apenas números, pontos ou traços"
-            required
-        >
+        <input type="text" name="cpf" id="cpf" pattern="[0-9.-]+" title="Apenas números, pontos ou traços" required>
 
         <br>
 
@@ -83,12 +57,7 @@
 
         <br>
 
-        <input
-            type="text"
-            name="endereco"
-            id="endereco"
-            required
-        >
+        <input type="text" name="endereco" id="endereco" required>
 
         <br>
 
@@ -99,14 +68,8 @@
 
         <br>
 
-        <input
-            type="text"
-            name="telefone"
-            id="telefone"
-            pattern="[0-9\s\+\-\(\)]+"
-            title="Apenas números e símbolos de telefone (+, -, espaços)"
-            required
-        >
+        <input type="text" name="telefone" id="telefone" pattern="[0-9\s\+\-\(\)]+"
+            title="Apenas números e símbolos de telefone (+, -, espaços)" required>
 
         <br>
 
@@ -117,20 +80,12 @@
 
         <br>
 
-        <input
-            type="email"
-            name="email"
-            id="email"
-            required
-        >
+        <input type="email" name="email" id="email" required>
 
         <br>
 
 
-        <button
-            type="submit"
-            class="cadastrar"
-        >
+        <button type="submit" class="cadastrar">
             Cadastrar
         </button>
 

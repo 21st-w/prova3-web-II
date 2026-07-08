@@ -4,17 +4,11 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Autenticação</title>
 
-    <link
-        rel="stylesheet"
-        href="/css/style.css"
-    >
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="login-body">
@@ -29,42 +23,27 @@
                 <%= mensagem %>
             </p>
 
-        <% } %>
+            <% } %>
 
-        <form
-            action="/autenticar"
-            method="POST"
-            class="login-form"
-        >
+                <form action="/autenticar" method="POST" class="login-form">
 
-            <label for="usuario">
-                Usuário:
-            </label>
+                    <label for="usuario">
+                        Usuário:
+                    </label>
 
-            <input
-                type="text"
-                name="usuario"
-                id="usuario"
-            >
+                    <input type="text" name="usuario" id="usuario">
 
-            <label for="senha">
-                Senha:
-            </label>
+                    <label for="senha">
+                        Senha:
+                    </label>
 
-            <input
-                type="password"
-                name="senha"
-                id="senha"
-            >
+                    <input type="password" name="senha" id="senha">
 
-            <button
-                type="submit"
-                class="entrar"
-            >
-                Entrar
-            </button>
+                    <button type="submit" class="entrar">
+                        Entrar
+                    </button>
 
-        </form>
+                </form>
 
     </div>
 

@@ -26,16 +26,13 @@ import org.springframework.web.bind.annotation.RestController;
 import ex.model.Cliente;
 import ex.model.repository.ClienteRepository;
 
-
 @RestController
 @RequestMapping("/api/clientes")
 @CrossOrigin("*")
 public class ClienteController {
 
-
     @Autowired
     private ClienteRepository repository;
-
 
     // Salvar cliente
 
@@ -50,10 +47,8 @@ public class ClienteController {
         System.out.println(cliente);
 
         return ResponseEntity.ok(
-            ClienteFormRequest.fromModel(cliente)
-        );
+                ClienteFormRequest.fromModel(cliente));
     }
-
 
     // Listar todos os clientes
 
@@ -66,34 +61,27 @@ public class ClienteController {
                 .collect(Collectors.toList());
     }
 
-
     // Pesquisar por nome e paginar
     // 5 clientes por página
 
     @GetMapping("/pagina")
     public Page<ClienteFormRequest> getPagina(
 
-            @RequestParam(defaultValue = "")
-            String nome,
+            @RequestParam(defaultValue = "") String nome,
 
-            @RequestParam(defaultValue = "0")
-            int page) {
+            @RequestParam(defaultValue = "0") int page) {
 
         Pageable pageable = PageRequest.of(
-            page,
-            5
-        );
+                page,
+                5);
 
         return repository
                 .findByNomeContainingIgnoreCase(
-                    nome,
-                    pageable
-                )
+                        nome,
+                        pageable)
                 .map(
-                    ClienteFormRequest::fromModel
-                );
+                        ClienteFormRequest::fromModel);
     }
-
 
     // Pesquisar cliente pelo ID
 
@@ -104,20 +92,14 @@ public class ClienteController {
         return repository.findById(id)
 
                 .map(
-                    ClienteFormRequest::fromModel
-                )
+                        ClienteFormRequest::fromModel)
 
                 .map(
-                    clienteFR ->
-                    ResponseEntity.ok(clienteFR)
-                )
+                        clienteFR -> ResponseEntity.ok(clienteFR))
 
                 .orElseGet(
-                    () ->
-                    ResponseEntity.notFound().build()
-                );
+                        () -> ResponseEntity.notFound().build());
     }
-
 
     // Atualizar cliente
 
@@ -126,12 +108,9 @@ public class ClienteController {
 
             @PathVariable Long id,
 
-            @RequestBody
-            ClienteFormRequest request) {
+            @RequestBody ClienteFormRequest request) {
 
-        Optional<Cliente> clienteExistente =
-            repository.findById(id);
-
+        Optional<Cliente> clienteExistente = repository.findById(id);
 
         if (clienteExistente.isEmpty()) {
 
@@ -141,19 +120,16 @@ public class ClienteController {
 
         }
 
-
         Cliente cliente = request.toModel();
 
         cliente.setId(id);
 
         repository.save(cliente);
 
-
         return ResponseEntity
                 .noContent()
                 .build();
     }
-
 
     // Excluir cliente
 
@@ -174,11 +150,9 @@ public class ClienteController {
                 })
 
                 .orElseGet(
-                    () ->
-                    ResponseEntity
-                            .notFound()
-                            .build()
-                );
+                        () -> ResponseEntity
+                                .notFound()
+                                .build());
     }
 
 }

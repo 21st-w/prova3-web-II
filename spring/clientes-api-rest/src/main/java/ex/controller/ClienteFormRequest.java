@@ -14,7 +14,8 @@ public class ClienteFormRequest {
     private String telefone;
     private String email;
 
-    public ClienteFormRequest() {}
+    public ClienteFormRequest() {
+    }
 
     public Cliente toModel() {
         Cliente cliente = new Cliente();
