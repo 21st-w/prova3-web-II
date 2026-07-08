@@ -62,7 +62,6 @@ public class ClienteController {
     }
 
     // Pesquisar por nome e paginar
-    // 5 clientes por página
 
     @GetMapping("/pagina")
     public Page<ClienteFormRequest> getPagina(
@@ -73,7 +72,7 @@ public class ClienteController {
 
         Pageable pageable = PageRequest.of(
                 page,
-                5);
+                5); //5 pot paginas
 
         return repository
                 .findByNomeContainingIgnoreCase(

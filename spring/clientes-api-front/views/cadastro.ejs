@@ -46,7 +46,7 @@
 
         <br>
 
-        <input type="text" name="cpf" id="cpf" pattern="[0-9.-]+" title="Apenas números, pontos ou traços" required>
+        <input type="text" name="cpf" id="cpf" pattern="[0-9.-]+" title="Apenas números, pontos ou traços" oninput="this.value = this.value.replace(/[^0-9.\-]/g, '')" required>
 
         <br>
 
@@ -69,7 +69,7 @@
         <br>
 
         <input type="text" name="telefone" id="telefone" pattern="[0-9\s\+\-\(\)]+"
-            title="Apenas números e símbolos de telefone (+, -, espaços)" required>
+            title="Apenas números e símbolos de telefone (+, -, espaços)" oninput="this.value = this.value.replace(/[^0-9\s+\-()]/g, '')" required>
 
         <br>
 
