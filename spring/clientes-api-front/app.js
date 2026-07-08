@@ -77,6 +77,7 @@ app.post('/autenticar', (req, res) => {
 // Rota para sair
 app.get('/sair', (req, res) => {
     req.session.destroy(() => {
+        res.clearCookie('connect.sid');
         res.redirect('/');
     });
 });
