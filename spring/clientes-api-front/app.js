@@ -20,6 +20,8 @@ const apiUrl = 'http://localhost:8080/api/clientes';
 
 // Verifica se o usuário está autenticado
 function verificarAutenticacao(req, res, next) {
+    res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    
     if (req.session.autenticado) {
         return next();
     }
