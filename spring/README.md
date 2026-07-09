@@ -40,7 +40,7 @@ Este guia tem tudo que você precisa fazer para rodar o projeto do **Desafio 07*
    ```
 3. Depois que terminar de instalar, inicie o servidor rodando:
    ```bash
-   node app.js
+   npm start
    ```
 4. O servidor vai exibir no terminal: `Servidor rodando na porta 3000`.
 
